@@ -53,3 +53,30 @@ Because of that, it works across platforms and applications.
   ```bash
   make start
   ```
+
+## Merge mic and system audio
+
+After recording, combine the two generated tracks into one MP3:
+
+```bash
+make merge
+```
+
+By default this merges the latest matching `call-*-mic.mp3` and
+`call-*-system.mp3` pair from `call-recordings/` and writes:
+
+```text
+call-recordings/call-YYYY-MM-DD-HHMMSS-merged.mp3
+```
+
+To merge a specific recording:
+
+```bash
+make merge BASE=call-2026-04-29-101120
+```
+
+You can also pass a full base path or set a custom output:
+
+```bash
+make merge BASE=call-recordings/call-2026-04-29-101120 OUT=call-recordings/call-2026-04-29-101120-mix.mp3
+```
